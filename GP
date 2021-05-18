@@ -68,3 +68,42 @@ Put put = new Put(outputreacord.getBytes(), data_create_time.getTime())
 put.add(Bytes.toBytes(hourIndex), Bytes.toBytes("ref_value"), Bytes.toBytes(ref_value))
 put.add(Bytes.toBytes(hourIndex), Bytes.toBytes(lot_id + this.outputFieldSeparator + wafer_no + this.outputFieldSeparator + slot_no), Bytes.toBytes(CompressionUtils.Compressor.compress(data)))
 );
+
+
+
+
+------
+
+
+<SOLR INDEX>
+
+
+row_index bitint,
+data_lake_time timestamp
+data_create_time timestamp
+line_no text
+mes_line text
+eqp_index text
+eqp_id text
+eqp_model text
+eqp_area text
+fdc_model text
+step_seq text
+ppid text
+trace_param_name text
+priority text
+min_value numeric[]
+max_value numeric[]
+process_id text[]
+part_id text[]
+root_lot_id text[]
+recipe_id text[]
+unit_index text[]
+unit_name text[]
+unit_type text[]
+proc_module_type text[]
+fdc_bin text[]
+fdc_bin_prop text[]
+trace_param_index text[]
+trace_param_id text[]
+record_key  text[]
