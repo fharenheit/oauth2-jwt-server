@@ -16,7 +16,7 @@ import javax.sql.DataSource;
 
 @Configuration
 @EnableAuthorizationServer
-public class AuthorizationConfiguration extends Authorization {
+public class AuthorizationConfiguration extends AuthorizationSErverConfigurerAdapter {
 
     @Autowired
     DataSource dataSource;
@@ -24,11 +24,29 @@ public class AuthorizationConfiguration extends Authorization {
     @Value("${app.oauth2.jwt-signing-key}")
     String jwtSigningKey;
 
+    @Value
+    int accessTokenValidatySeconds;
+    
     @Autowired
     @Qualifier("authenticationManagerBean")
     AuthenticationManager authenticationManager;
 
+    @Autowiared
+    UserDetailService userDetailSErvice;
 
+    @Override
+    configure(AuthorizationServerEndpintsConfigurer endpoints) {
+        endpoints.tokenStore(tokenStore())
+            .approvalStore(approvalStore())
+            .acessTOkenConverter(...) // added for JWT
+            .authenticationManager(...)
+            userdetailservice(...);
+    
+    @Override
+    
+    configure(CLientDetailConfiguerer lists) {
+        clients.jdbc(dataSOurce);
+    
     @Bean
     ApprovalStore approvalStore() {
         return new JdbcApprovalStore(dataSource);
@@ -36,7 +54,21 @@ public class AuthorizationConfiguration extends Authorization {
 
     @Bean
     TokenStore tokenStore() {
-        return new JwtTokenStore(accessToken)
+        return new JwtTokenStore(accessToken);
     }
+    
+    @Bean
+    JwtAccessTokenConverter acessTokenConverter() {
+        JwtAccessTokenConverter converter = new JwtAcessTokenConverter();
+        converter.setSigningKey(jwt);
+        return converter
+        }
+    
+    @Bean
+    @Primary
+    DefaultTokenService tokenService() {
+        DefaultTokenSErvice tokenService = new DefaultTokenSErvice()
+            toeknSErvice.setToeknStore(tokenStore());
+        return toeknService;
 
 }
