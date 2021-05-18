@@ -1,0 +1,70 @@
+MR HBase
+
+RV-IMMEDIATE
+
+line_no, eqp_index, eqp_id, eqp_model, eqp_area, unit_index, unit_id, unit_name, proc_module_type, step_seq, ppid, process_id, part-id, recipe_id...
+
+output record key
+
+trace_param_index
+line_no
+eqp_id
+unit_name
+param_item
+trace_param_name
+subitem
+process_id
+part_id
+step_seq
+ppid
+recipe_id
+ALL
+NULL
+trace_param_index
+data_create_time
+root_lot_id
+
+ref_value
+
+line_no
+mes_line
+eqp_area
+fdc_model
+eqp_index
+eqp_id
+parents_eqp_id
+unit_index
+unit_name
+unit_type
+proc_module_type
+fdc_bin
+fdc_bin_prop
+step_seq
+process_id
+part_id
+ppid
+recipe_id
+ALL
+NULL
+trace_param_index
+trace_param_id
+param_item
+trace_param_name
+subitem
+measure_type_id
+priority
+is_trace_framing
+data_lake_time
+data_create_time
+root_lot_id
+
+output key
+
+outputreacord.getbyte()
+
+outputvalue
+
+Put put = new Put(outputreacord.getBytes(), data_create_time.getTime())
+put.add(Bytes.toBytes(hourIndex), Bytes.toBytes("ref_value"), Bytes.toBytes(ref_value))
+put.add(Bytes.toBytes(hourIndex), Bytes.toBytes(lot_id + this.outputFieldSeparator + wafer_no + this.outputFieldSeparator + slot_no), Bytes.toBytes(CompressionUtils.Compressor.compress(data)))
+);
