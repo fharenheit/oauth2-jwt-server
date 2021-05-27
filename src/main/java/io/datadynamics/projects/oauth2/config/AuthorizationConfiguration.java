@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.BeanIds;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
@@ -31,11 +32,11 @@ public class AuthorizationConfiguration extends AuthorizationServerConfigurerAda
     @Value("${app.oauth2.jwt-signing-key}")
     String jwtSigningKey;
 
-    @Value("${app.oauth2.access-token-validaty-seconds}")
-    int accessTokenValidatySeconds;
+    @Value("${app.oauth2.access-token-validity-seconds}")
+    int accessTokenValiditySeconds;
 
     @Autowired
-    @Qualifier("authenticationManagerBean")
+    @Qualifier(BeanIds.AUTHENTICATION_MANAGER)
     AuthenticationManager authenticationManager;
 
     @Autowired

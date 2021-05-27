@@ -31,10 +31,10 @@ spring:
     #driver-class-name: org.postgresql.Driver
     #username: postgres
     #password: postgres
-    url: jdbc:log4jdbc:mysql://localhost:3306/glue?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
+    url: jdbc:log4jdbc:mysql://192.168.226.130:3306/test?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
     driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
     username: root
-    password: root
+    password: user
     sql-script-encoding: UTF-8
     continue-on-error: true
     initialization-mode: always
@@ -68,7 +68,7 @@ server:
 app:
   oauth2:
     jwt-signing-key: asdf1234
-    access-token-validaty-seconds: 2592000
+    access-token-validity-seconds: 2592000
   ldap:
     prefix:
       base: OU=KOR

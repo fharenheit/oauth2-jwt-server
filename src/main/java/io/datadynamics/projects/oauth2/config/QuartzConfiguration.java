@@ -25,7 +25,6 @@ public class QuartzConfiguration {
     public SchedulerFactoryBean scheduler() {
         SchedulerFactoryBean schedulerFactory = new SchedulerFactoryBean();
         schedulerFactory.setConfigLocation(new ClassPathResource("quartz.properties"));
-
         schedulerFactory.setJobFactory(springBeanJobFactory());
         return schedulerFactory;
     }

@@ -9,4 +9,6 @@ oauth_refresh_token
 oauth-code
 oayt_approval
 
+```javascript
 /oauth/token -d"grant_type=password&usenrame=aaa&password=password" -H"Content=type:application/x-www-form-urlencoded; chartset=utf-8" -u adfadsf:adfadsfa
+```
