@@ -12,7 +12,11 @@ public class ImpalaJdbcTest {
         ds.setUrl("jdbc:impala://localhost:21050;AuthMech=11");
         Properties props = new Properties();
         props.setProperty("Auth_Client_ID", "dataflex");
+        props.setProperty("httpPath", "http://localhost:8888/oauth/token");
         props.setProperty("AuthorizationUrl", "http://localhost:8888/oauth/token");
+        props.setProperty("UseServerSSLConfigsForOAuthEndPoint", "false");
+        props.setProperty("transportMode", "http");
+        props.setProperty("Auth_Client_Secret", "http");
 
         ds.setConnectionProperties(props);
 
