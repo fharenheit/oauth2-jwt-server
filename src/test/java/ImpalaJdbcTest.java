@@ -14,9 +14,9 @@ public class ImpalaJdbcTest {
         props.setProperty("Auth_Client_ID", "dataflex");
         props.setProperty("httpPath", "http://localhost:8888/oauth/token");
         props.setProperty("AuthorizationUrl", "http://localhost:8888/oauth/token");
-        props.setProperty("UseServerSSLConfigsForOAuthEndPoint", "false");
         props.setProperty("transportMode", "http");
-        props.setProperty("Auth_Client_Secret", "http");
+        props.setProperty("Auth_AccessToken", "http");
+        props.setProperty("Auth_Flow", "0");
 
         ds.setConnectionProperties(props);
 
